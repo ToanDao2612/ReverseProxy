@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse", "ProxyReverse\ProxyReverse.csproj", "{9AB8FCDD-1CB9-4BAF-B6C8-A5F227834B59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyReverse.SubdomainCreator", "ProxyReverse.SubdomainCreator\ProxyReverse.SubdomainCreator.csproj", "{A5AF9505-A2DD-4B1B-95DA-2013BC6A35DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AB8FCDD-1CB9-4BAF-B6C8-A5F227834B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AB8FCDD-1CB9-4BAF-B6C8-A5F227834B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AB8FCDD-1CB9-4BAF-B6C8-A5F227834B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AB8FCDD-1CB9-4BAF-B6C8-A5F227834B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5AF9505-A2DD-4B1B-95DA-2013BC6A35DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5AF9505-A2DD-4B1B-95DA-2013BC6A35DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5AF9505-A2DD-4B1B-95DA-2013BC6A35DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5AF9505-A2DD-4B1B-95DA-2013BC6A35DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E898E1E-8D49-433F-9864-5EA032E2277B}
+	EndGlobalSection
+EndGlobal
