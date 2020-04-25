@@ -5,7 +5,21 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse", "ProxyReverse\ProxyReverse.csproj", "{9AB8FCDD-1CB9-4BAF-B6C8-A5F227834B59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyReverse.SubdomainCreator", "ProxyReverse.SubdomainCreator\ProxyReverse.SubdomainCreator.csproj", "{A5AF9505-A2DD-4B1B-95DA-2013BC6A35DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.SubdomainCreator", "ProxyReverse.SubdomainCreator\ProxyReverse.SubdomainCreator.csproj", "{A5AF9505-A2DD-4B1B-95DA-2013BC6A35DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.SubdomainCreator.TestApp", "ProxyReverse.SubdomainCreator.TestApp\ProxyReverse.SubdomainCreator.TestApp.csproj", "{4EF723AA-0777-48F4-AB71-D805A600ED64}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Godaddy.SubdomainCreateor", "Godaddy.SubdomainCreateor\Godaddy.SubdomainCreateor.csproj", "{0984BBA4-AC94-4A6D-AFB6-BEB3EFFB6792}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.WebApp", "..\ProxyReverse.WebApp\ProxyReverse.WebApp.csproj", "{B5BDBA72-29A8-4D2F-A8AB-E814200CD365}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{417DA349-B812-420B-B193-58407949104B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyReverse.Client.TestApp", "..\ProxyReverse.Client.TestApp\ProxyReverse.Client.TestApp.csproj", "{1936E4C1-CBDD-4BC8-8345-BD98A75D6F93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyReverse.WebApi", "..\ProxyReverse.WebApi\ProxyReverse.WebApi.csproj", "{36253B4E-A9D1-41E2-A453-530877065668}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyReverse.DependencyInjection", "..\ProxyReverse.DependencyInjection\ProxyReverse.DependencyInjection.csproj", "{4FADB402-D0AE-4A5C-AB92-05BE0C43CEDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +35,34 @@ Global
 		{A5AF9505-A2DD-4B1B-95DA-2013BC6A35DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5AF9505-A2DD-4B1B-95DA-2013BC6A35DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5AF9505-A2DD-4B1B-95DA-2013BC6A35DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EF723AA-0777-48F4-AB71-D805A600ED64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EF723AA-0777-48F4-AB71-D805A600ED64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EF723AA-0777-48F4-AB71-D805A600ED64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EF723AA-0777-48F4-AB71-D805A600ED64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0984BBA4-AC94-4A6D-AFB6-BEB3EFFB6792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0984BBA4-AC94-4A6D-AFB6-BEB3EFFB6792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0984BBA4-AC94-4A6D-AFB6-BEB3EFFB6792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0984BBA4-AC94-4A6D-AFB6-BEB3EFFB6792}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5BDBA72-29A8-4D2F-A8AB-E814200CD365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5BDBA72-29A8-4D2F-A8AB-E814200CD365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5BDBA72-29A8-4D2F-A8AB-E814200CD365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5BDBA72-29A8-4D2F-A8AB-E814200CD365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{417DA349-B812-420B-B193-58407949104B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{417DA349-B812-420B-B193-58407949104B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{417DA349-B812-420B-B193-58407949104B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{417DA349-B812-420B-B193-58407949104B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1936E4C1-CBDD-4BC8-8345-BD98A75D6F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1936E4C1-CBDD-4BC8-8345-BD98A75D6F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1936E4C1-CBDD-4BC8-8345-BD98A75D6F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1936E4C1-CBDD-4BC8-8345-BD98A75D6F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36253B4E-A9D1-41E2-A453-530877065668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36253B4E-A9D1-41E2-A453-530877065668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36253B4E-A9D1-41E2-A453-530877065668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36253B4E-A9D1-41E2-A453-530877065668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FADB402-D0AE-4A5C-AB92-05BE0C43CEDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FADB402-D0AE-4A5C-AB92-05BE0C43CEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FADB402-D0AE-4A5C-AB92-05BE0C43CEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FADB402-D0AE-4A5C-AB92-05BE0C43CEDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

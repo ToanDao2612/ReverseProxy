@@ -20,7 +20,7 @@ namespace ProxyReverse
                 externalRequestsListener = new TcpListener(localAddr, 13000);
                 externalRequestsListener.Start();
 
-                List<Task> clients = new List<Task>(2);
+                List<Task> clients = new List<Task>(1);
                 while (true)
                 {
                     var proxyClient = externalRequestsListener.GetNewClient();

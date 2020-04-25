@@ -1,0 +1,65 @@
+version: '3.4'
+
+services:
+    proxyreverse.webapp:
+        container_name: "proxyreverse.webapp"
+        image: ${DOCKER_REGISTRY-}proxyreversewebapp
+        build:
+            context: .
+            dockerfile: ../ProxyReverse.WebApp/Dockerfile
+        ports:
+            - "3000:80"
+            - "3001:443"
+        depends_on:
+            - "proxyreverse.sql_server"
+            - "proxyreverse.cache_server"
+        networks:
+            - "proxyreverse.network"
+
+    proxyreverse.webapi:
+        container_name: "proxyreverse.webapi"
+        image: ${DOCKER_REGISTRY-}proxyreversewebapi
+        build:
+            context: .
+            dockerfile: ../ProxyReverse.WebApi/Dockerfile
+        ports:
+            - "3100:80"
+            - "3101:443"
+        depends_on:
+            - "proxyreverse.sql_server"
+            - "proxyreverse.cache_server"
+        networks:
+            - "proxyreverse.network"
+
+    proxyreverse.clientapp:
+        container_name: "proxyreverse.clientapp"
+        image: ${DOCKER_REGISTRY-}proxyreverseclienttestapp
+        build:
+            context: .
+            dockerfile: ../ProxyReverse.Client.TestApp/Dockerfile
+        environment:
+            web_api: "{url: proxyreverse.webapi,http: 3100,http: 3101"
+            web_app: "{url: proxyreverse.webapp,http: 3000,http: 3001"
+        depends_on:
+            - "proxyreverse.webapi"
+        networks:
+            - "proxyreverse.network"
+
+    proxyreverse.sql_server:
+        container_name: "proxyreverse.sql_server"
+        image: mcr.microsoft.com/mssql/server
+        environment:
+            ACCEPT_EULA: "Y"
+            SA_PASSWORD: "Dev1234@"
+        ports:
+            - "3200:3200"
+
+    proxyreverse.cache_server:
+        container_name: "proxyreverse.cache_server"
+        image: redis
+        ports:
+            - "3300:3300"
+
+networks:
+    proxyreverse.network:
+        driver: bridge
