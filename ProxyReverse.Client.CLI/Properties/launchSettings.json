@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ProxyReverse.Client.CLI": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

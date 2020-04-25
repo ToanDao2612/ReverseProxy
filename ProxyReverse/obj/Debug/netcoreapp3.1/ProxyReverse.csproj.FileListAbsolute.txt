@@ -1,4 +1,3 @@
-C:\Users\crist\source\repos\ProxyReverse\ProxyReverse\obj\Debug\netcoreapp3.1\ProxyReverse.csprojAssemblyReference.cache
 C:\Users\crist\source\repos\ProxyReverse\ProxyReverse\obj\Debug\netcoreapp3.1\ProxyReverse.AssemblyInfoInputs.cache
 C:\Users\crist\source\repos\ProxyReverse\ProxyReverse\obj\Debug\netcoreapp3.1\ProxyReverse.AssemblyInfo.cs
 C:\Users\crist\source\repos\ProxyReverse\ProxyReverse\bin\Debug\netcoreapp3.1\ProxyReverse.exe
