@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "Depe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse", "ProxyReverse\ProxyReverse.csproj", "{FE75B84D-0E35-4237-95F1-BBD2B4583CD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyReverse.Client", "ProxyReverse.Client\ProxyReverse.Client.csproj", "{666E0913-C4BE-49AD-B11F-4420F9E07BE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.Client", "ProxyReverse.Client\ProxyReverse.Client.csproj", "{666E0913-C4BE-49AD-B11F-4420F9E07BE0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.DependencyInjection", "ProxyReverse.DependencyInjection\ProxyReverse.DependencyInjection.csproj", "{A38056FA-B884-4118-9BA4-746B20FE985F}"
 EndProject
@@ -29,15 +29,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.WebApp", "Prox
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.WebApi", "ProxyReverse.WebApi\ProxyReverse.WebApi.csproj", "{42A6392A-4074-4793-9C98-EAE376105D3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyReverse.Client.CLI", "ProxyReverse.Client.CLI\ProxyReverse.Client.CLI.csproj", "{7ACC06F2-0BBD-447E-8AA5-1FB14A453EBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.Client.CLI", "ProxyReverse.Client.CLI\ProxyReverse.Client.CLI.csproj", "{7ACC06F2-0BBD-447E-8AA5-1FB14A453EBD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{AE9DD2BA-301B-4319-8514-61C989BDA157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common.csproj", "{90BE3DAF-A13A-49B6-8D07-765995DD3EF7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.SubdomainCreator", "ProxyReverse.SubdomainCreator\ProxyReverse.SubdomainCreator.csproj", "{6743FD37-F249-4166-B02D-9421D850E0EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyReverse.Client.DependencyInjection", "..\ProxyReverse.Client.DependencyInjection\ProxyReverse.Client.DependencyInjection.csproj", "{47AD39C6-F12C-4838-916D-4B08E31195AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.Client.DependencyInjection", "ProxyReverse.Client.DependencyInjection\ProxyReverse.Client.DependencyInjection.csproj", "{6D969ED3-1BE0-4548-93D0-2FA7E9375EA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{7AA325B5-4A94-47D0-9831-ADD9B067F0C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,18 +81,18 @@ Global
 		{7ACC06F2-0BBD-447E-8AA5-1FB14A453EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ACC06F2-0BBD-447E-8AA5-1FB14A453EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ACC06F2-0BBD-447E-8AA5-1FB14A453EBD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90BE3DAF-A13A-49B6-8D07-765995DD3EF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90BE3DAF-A13A-49B6-8D07-765995DD3EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90BE3DAF-A13A-49B6-8D07-765995DD3EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90BE3DAF-A13A-49B6-8D07-765995DD3EF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6743FD37-F249-4166-B02D-9421D850E0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6743FD37-F249-4166-B02D-9421D850E0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6743FD37-F249-4166-B02D-9421D850E0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6743FD37-F249-4166-B02D-9421D850E0EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{47AD39C6-F12C-4838-916D-4B08E31195AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47AD39C6-F12C-4838-916D-4B08E31195AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47AD39C6-F12C-4838-916D-4B08E31195AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47AD39C6-F12C-4838-916D-4B08E31195AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D969ED3-1BE0-4548-93D0-2FA7E9375EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D969ED3-1BE0-4548-93D0-2FA7E9375EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D969ED3-1BE0-4548-93D0-2FA7E9375EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D969ED3-1BE0-4548-93D0-2FA7E9375EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AA325B5-4A94-47D0-9831-ADD9B067F0C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AA325B5-4A94-47D0-9831-ADD9B067F0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AA325B5-4A94-47D0-9831-ADD9B067F0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AA325B5-4A94-47D0-9831-ADD9B067F0C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,9 +106,9 @@ Global
 		{8695633E-0378-4E6B-B47E-EDE5166E17CA} = {9E49129F-A8B6-48E5-B227-DE68BED6A509}
 		{42A6392A-4074-4793-9C98-EAE376105D3D} = {9E49129F-A8B6-48E5-B227-DE68BED6A509}
 		{7ACC06F2-0BBD-447E-8AA5-1FB14A453EBD} = {3143E593-9FD0-48BE-A4B9-F586996ECEA1}
-		{90BE3DAF-A13A-49B6-8D07-765995DD3EF7} = {AE9DD2BA-301B-4319-8514-61C989BDA157}
 		{6743FD37-F249-4166-B02D-9421D850E0EA} = {072115C3-A51B-4105-A7C5-A84B3D381447}
-		{47AD39C6-F12C-4838-916D-4B08E31195AA} = {3143E593-9FD0-48BE-A4B9-F586996ECEA1}
+		{6D969ED3-1BE0-4548-93D0-2FA7E9375EA7} = {3143E593-9FD0-48BE-A4B9-F586996ECEA1}
+		{7AA325B5-4A94-47D0-9831-ADD9B067F0C6} = {AE9DD2BA-301B-4319-8514-61C989BDA157}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E898E1E-8D49-433F-9864-5EA032E2277B}
