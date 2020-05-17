@@ -19,12 +19,7 @@ namespace ProxyReverse.WebApi
         public WebApplicationContext WebApplicationContext { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        {
-            WebApplicationContext
-                .UseContext()
-                .ConfigureServices<WebDependencyConfigurator>();
-            services.AddControllers();
-        }
+            => services.AddControllers();
 
         public void ConfigureContainer(IUnityContainer container)
             => WebApplicationContext.Build(container);
