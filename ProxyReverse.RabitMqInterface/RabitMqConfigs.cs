@@ -9,17 +9,12 @@
         string QueueName {get;}
     }
 
-    public static class QueueDefaults
-    {
-        public static string TunelRequestQueue = nameof(TunelRequestQueue);
-    }
-
     public class RabitMqConfigs : IRabitMqConfigs
     {
         public string HostName { get => "proxyreverse.queue"; }
         public string UserName { get => "rabitmquser"; }
         public string Password { get => "Dev1234@"; }
 
-        public string QueueName => QueueDefaults.TunelRequestQueue;
+        public string QueueName => QueueDefaults.TunelRequest;
     }
 }
