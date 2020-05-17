@@ -31,8 +31,6 @@ services:
         networks:
             - "proxyreverse.network"
 
-             :
-
     proxyreverse.client.cli:
         container_name: "proxyreverse.clientapp"
         image: ${DOCKER_REGISTRY-}proxyreverseclientcli
@@ -40,8 +38,8 @@ services:
             context: .
             dockerfile: ProxyReverse.Client.CLI/Dockerfile
         environment:
-            web_api: "{uri: proxyreverse.webapi, http: 3100, http: 3101"
-            web_app: "{uri: proxyreverse.webapi, http: 3000, http: 3001"
+            web_api: "{uri: proxyreverse.webapi, http: 3100, http: 3101}"
+            web_app: "{uri: proxyreverse.webapi, http: 3000, http: 3001}"
         depends_on:
             - "proxyreverse.webapi"
         networks:

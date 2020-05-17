@@ -6,7 +6,7 @@
             where TContext: AbstractApplicationContext, new ()
         {
             var serviceProvderBuilder = new ServiceProviderBuilder();
-            serviceProvderBuilder.ConfigureService(ConfigureServiceDelegate =>
+            serviceProvderBuilder.ConfigureServices(ConfigureServiceDelegate =>
             {
                 ConfigureServiceDelegate.RegisterInstance<AbstractApplicationContext, TContext>(instance);
             });

@@ -9,9 +9,9 @@ using System.Text;
 
 namespace ProxyReverse.Client.DependencyInjection.Setup
 {
-    internal class DependencyConfigurator : IDependencyConfigurator
+    internal class ClientDependencyConfigurator : IDependencyConfigurator
     {
-        public DependencyConfigurator()
+        public ClientDependencyConfigurator()
         {
         }
 

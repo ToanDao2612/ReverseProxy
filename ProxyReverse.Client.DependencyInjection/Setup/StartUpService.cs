@@ -34,7 +34,7 @@ namespace ProxyReverse.Client.DependencyInjection.Setup
             var connectionResponse = await WebRequest.NewRequestConnectionAsync(connectionRequest);
             if(!connectionResponse.IsSuccesful)
             {
-                throw new StartUpException();
+                //throw new StartUpException();
             }
 
             var tunnel = Connector.CreateTunnel(connectionResponse);

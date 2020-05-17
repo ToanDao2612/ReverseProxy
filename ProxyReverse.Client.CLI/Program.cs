@@ -1,4 +1,4 @@
-﻿using ProxyReverse.Client.DependencyInjection.Setup;
+﻿using ProxyReverse.Client.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 
@@ -8,9 +8,9 @@ namespace ProxyReverse.Client.CLI
     {
         static async Task Main(string[] args)
         {
-            var clientApp = ClientApp.Instance;
-            clientApp.ConfigureDependencyInjection();
-            await clientApp.RunAsync();
+            //var clientApp = ClientApp.Instance;
+            //clientApp.ConfigureDependencyInjection();
+            //await clientApp.RunAsync();
         }
     }
 }

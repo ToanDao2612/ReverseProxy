@@ -2,26 +2,31 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Unity;
 
 namespace ProxyReverse.DependencyInjection
 {
+
     public abstract class AbstractApplicationContext 
     {
         internal ServiceProviderBuilder ServiceProviderBuilder { get; set; }
-        protected async Task OnStartAsync() { }
-        protected async Task OnEndAsync() { }
-        public async Task StartAsync<TStartUpService>()
-            where TStartUpService : IStartUpService
+        protected void OnStart() { }
+        protected void OnEnd() { }
+
+        public IServiceProvider Build()
         {
-            ServiceProviderBuilder.ConfigureService(x =>
-            {
-                x.RegisterSingleton<IStartUpService, TStartUpService>();
-            });
+            OnStart();
             var serviceProvider = ServiceProviderBuilder.Build();
-            await OnStartAsync();
-            var startUpService = serviceProvider.GetService<IStartUpService>();
-            await startUpService.RunAsync();
-            await OnEndAsync();
+            OnEnd();
+            return serviceProvider;
+        }
+
+        public IServiceProvider Build(IUnityContainer unityContainer)
+        {
+            OnStart();
+            var serviceProvider = ServiceProviderBuilder.Build(unityContainer);
+            OnEnd();
+            return serviceProvider;
         }
     }
 }

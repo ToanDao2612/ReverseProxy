@@ -7,7 +7,7 @@ namespace ProxyReverse.Client.Connectors
     {
         public async Task ProceedCommunication()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

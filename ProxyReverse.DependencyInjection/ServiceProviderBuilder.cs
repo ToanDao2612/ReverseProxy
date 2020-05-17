@@ -8,7 +8,7 @@ namespace ProxyReverse.DependencyInjection
     public delegate void ConfigureServiceDelegate(IContainer container);
     public interface IServiceProviderBuilder
     {
-        IServiceProviderBuilder ConfigureService(ConfigureServiceDelegate configureServiceDelegate);
+        IServiceProviderBuilder ConfigureServices(ConfigureServiceDelegate configureServiceDelegate);
         IServiceProviderBuilder ConfigureServices<TDependencyConfigurator>()
             where TDependencyConfigurator : IDependencyConfigurator, new();
     }
@@ -21,15 +21,24 @@ namespace ProxyReverse.DependencyInjection
         public IServiceProviderBuilder _instance { get; set; }
         public IServiceProviderBuilder Instance { get => _instance ?? (_instance = new ServiceProviderBuilder()); }
         public event ConfigureServiceDelegate ServiceConfiguratorsEvent; 
-        public IServiceProvider Build()
+        public IServiceProvider Build() 
+            => GetServiceProvider(new ServiceProvider(null));
+
+        public IServiceProvider Build(IUnityContainer unityContainer)
+            =>GetServiceProvider(new ServiceProvider(unityContainer));
+
+        private IServiceProvider GetServiceProvider(ServiceProvider serviceProvider)
         {
-            var serviceProvider = new ServiceProvider();
-            serviceProvider.Container.RegisterSingleton<IServiceProvider, ServiceProvider>();
+            this.RegisterSelf();
             ServiceConfiguratorsEvent.Invoke(serviceProvider.Container);
             return serviceProvider;
         }
 
-        public IServiceProviderBuilder ConfigureService(ConfigureServiceDelegate configureServiceDelegate)
+
+        public IServiceProviderBuilder RegisterSelf() =>
+            this.ConfigureServices(x => x.RegisterSingleton<IServiceProvider, ServiceProvider>());
+
+        public IServiceProviderBuilder ConfigureServices(ConfigureServiceDelegate configureServiceDelegate)
         {
             ServiceConfiguratorsEvent += configureServiceDelegate;
             return this;

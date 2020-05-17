@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\crist\\source\\repos\\ProxyReverse\\ProxyReverse.SubdomainCreator\\ProxyReverse.SubdomainCreator.csproj",
+      "projectUniqueName": "C:\\Users\\crist\\OneDrive\\Desktop\\ProxyReverse\\ProxyReverse.SubdomainCreator\\ProxyReverse.SubdomainCreator.csproj",
       "projectName": "ProxyReverse.SubdomainCreator",
-      "projectPath": "C:\\Users\\crist\\source\\repos\\ProxyReverse\\ProxyReverse.SubdomainCreator\\ProxyReverse.SubdomainCreator.csproj",
+      "projectPath": "C:\\Users\\crist\\OneDrive\\Desktop\\ProxyReverse\\ProxyReverse.SubdomainCreator\\ProxyReverse.SubdomainCreator.csproj",
       "packagesPath": "C:\\Users\\crist\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\crist\\source\\repos\\ProxyReverse\\ProxyReverse.SubdomainCreator\\obj\\",
+      "outputPath": "C:\\Users\\crist\\OneDrive\\Desktop\\ProxyReverse\\ProxyReverse.SubdomainCreator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

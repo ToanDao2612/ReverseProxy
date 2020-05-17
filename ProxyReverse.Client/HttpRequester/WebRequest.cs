@@ -29,14 +29,15 @@ namespace ProxyReverse.Client.HttpRequester
                 };
 
                 HttpClient httpClient = new HttpClient(handler);
-                HttpResponseMessage result = await httpClient.GetAsync($"https://{config.RequestConnectionUrl}/Connection");
+                HttpResponseMessage result = await httpClient.GetAsync($"https://{config.RequestConnectionUrl}/Communicator");
                 string httpResponse = await result.Content.ReadAsStringAsync();
 
                 return JsonConvert.DeserializeObject<ConnectionResponse>(httpResponse);
             }
             catch (Exception ex)
             {
-                throw new NetworkException();
+                //throw new NetworkException();
+                return null;
             }
         }
     }

@@ -1,6 +1,5 @@
 ﻿using GoDaddy.SubdomainCreator;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ProxyReverse.SubdomainCreator.TestApp
@@ -17,7 +16,7 @@ namespace ProxyReverse.SubdomainCreator.TestApp
                 DomainAuthorizationKey = $"e42s2CCpghZo_DFWLYVb2djwAS2Hd5amRGp:6HzgUC4u9WPv1Pk9QW33Vz",
 
                 Ip = "23.227.38.32",
-                SubdomainName = $"ana.are.multe.mere",
+                SubdomainName = $"misu.mere",
                 RefresRate = 1800,
                 Type = "A"
             });

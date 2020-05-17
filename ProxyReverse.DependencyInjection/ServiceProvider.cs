@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Unity;
 
 namespace ProxyReverse.DependencyInjection
@@ -13,9 +11,8 @@ namespace ProxyReverse.DependencyInjection
     {
         internal IContainer Container { get; private set; }
 
-        internal ServiceProvider() {
-            Container = new Container();
-        }
+        internal ServiceProvider(IUnityContainer unityContainer)=>
+            Container = new Container(unityContainer);
 
         public T GetService<T>() =>(T) GetService(typeof(T));
         public object GetService(Type serviceType) => Container.Resolve(serviceType);

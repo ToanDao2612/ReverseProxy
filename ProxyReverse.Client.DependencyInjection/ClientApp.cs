@@ -1,10 +1,12 @@
-﻿using ProxyReverse.DependencyInjection;
+﻿using ProxyReverse.Client.DependencyInjection;
+using ProxyReverse.Client.DependencyInjection.Setup;
+using ProxyReverse.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProxyReverse.Client.DependencyInjection.Setup
+namespace ProxyReverse.Client.DependencyInjection
 {
     public class ClientApp 
     {
@@ -18,7 +20,7 @@ namespace ProxyReverse.Client.DependencyInjection.Setup
         {
             ClientAppContext
                 .UseContext()
-                .ConfigureServices<DependencyConfigurator>();
+                .ConfigureServices<ClientDependencyConfigurator>();
         }
 
         public async Task RunAsync()
