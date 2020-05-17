@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
-    <ProjectReference Include="..\ProxyReverse.DependencyInjection\ProxyReverse.DependencyInjection.csproj" />
   </ItemGroup>
 
 </Project>

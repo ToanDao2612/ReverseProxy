@@ -14,8 +14,9 @@ C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\bin\Debug\netcoreapp3.
 C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\bin\Debug\netcoreapp3.1\ProxyReverse.runtimeconfig.dev.json
 C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\bin\Debug\netcoreapp3.1\ProxyReverse.dll
 C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\bin\Debug\netcoreapp3.1\ProxyReverse.pdb
-C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\obj\Debug\netcoreapp3.1\ProxyReverse.csprojAssemblyReference.cache
 C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\obj\Debug\netcoreapp3.1\ProxyReverse.AssemblyInfoInputs.cache
 C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\obj\Debug\netcoreapp3.1\ProxyReverse.AssemblyInfo.cs
 C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\obj\Debug\netcoreapp3.1\ProxyReverse.dll
 C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\obj\Debug\netcoreapp3.1\ProxyReverse.pdb
+C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\obj\Debug\netcoreapp3.1\ProxyReverse.csproj.CoreCompileInputs.cache
+C:\Users\crist\OneDrive\Desktop\ProxyReverse\ProxyReverse\obj\Debug\netcoreapp3.1\ProxyReverse.genruntimeconfig.cache

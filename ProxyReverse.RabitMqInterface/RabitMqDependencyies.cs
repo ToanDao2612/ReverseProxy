@@ -1,4 +1,4 @@
-﻿using ProxyReverse.DependencyInjection;
+﻿using DependencyInjection;
 using ProxyReverse.Web.Core.ExternalyImplementedServices;
 using System;
 using System.Collections.Generic;

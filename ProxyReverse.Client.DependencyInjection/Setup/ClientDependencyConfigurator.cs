@@ -1,8 +1,8 @@
-﻿using ProxyReverse.Client.ConfigReader;
+﻿using DependencyInjection;
+using ProxyReverse.Client.ConfigReader;
 using ProxyReverse.Client.Connection;
 using ProxyReverse.Client.Connectors;
 using ProxyReverse.Client.HttpRequester;
-using ProxyReverse.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;

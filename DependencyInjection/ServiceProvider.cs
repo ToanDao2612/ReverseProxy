@@ -1,7 +1,7 @@
 ﻿using System;
 using Unity;
 
-namespace ProxyReverse.DependencyInjection
+namespace DependencyInjection
 {
     public interface IServiceProvider : System.IServiceProvider
     {

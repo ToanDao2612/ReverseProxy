@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProxyReverse.DependencyInjection\ProxyReverse.DependencyInjection.csproj" />
+    <ProjectReference Include="..\DependencyInjection\DependencyInjection.csproj" />
   </ItemGroup>
 
 </Project>

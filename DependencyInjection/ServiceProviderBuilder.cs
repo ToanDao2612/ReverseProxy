@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Unity;
+﻿using Unity;
 
-namespace ProxyReverse.DependencyInjection
+namespace DependencyInjection
 {
     public delegate void ConfigureServiceDelegate(IContainer container);
     public interface IServiceProviderBuilder

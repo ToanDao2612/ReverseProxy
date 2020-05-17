@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace ProxyReverse.DependencyInjection
+namespace DependencyInjection
 {
     public interface IStartUpService
     {

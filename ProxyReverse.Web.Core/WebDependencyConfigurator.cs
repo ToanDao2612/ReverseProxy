@@ -1,4 +1,4 @@
-﻿using ProxyReverse.DependencyInjection;
+﻿using DependencyInjection;
 using ProxyReverse.Web.Core.InternalyImplementedServices;
 
 namespace ProxyReverse.Web.Core

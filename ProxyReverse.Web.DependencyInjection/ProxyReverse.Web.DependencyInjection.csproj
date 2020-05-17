@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProxyReverse.DependencyInjection\ProxyReverse.DependencyInjection.csproj" />
     <ProjectReference Include="..\ProxyReverse.RabitMqInterface\ProxyReverse.RabitMqInterface.csproj" />
     <ProjectReference Include="..\ProxyReverse.Web.Core\ProxyReverse.Web.Core.csproj" />
   </ItemGroup>

@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DependencyInjection\DependencyInjection.csproj" />
     <ProjectReference Include="..\ProxyReverse.Client\ProxyReverse.Client.csproj" />
-    <ProjectReference Include="..\ProxyReverse.DependencyInjection\ProxyReverse.DependencyInjection.csproj" />
   </ItemGroup>
 
 </Project>

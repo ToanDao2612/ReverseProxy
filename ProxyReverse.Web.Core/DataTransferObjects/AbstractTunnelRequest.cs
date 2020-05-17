@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProxyReverse.Web.Core.DataTransferObjects
 {
-    public abstract class TunnelRequest
+    public abstract class AbstractTunnelRequest
     {
         public abstract TunnelType TunelType { get; }
     }

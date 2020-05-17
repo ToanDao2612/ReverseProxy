@@ -7,6 +7,6 @@ namespace ProxyReverse.Web.Core.ExternalyImplementedServices
 {
     public interface ITunnelRequestedQueueExposer
     {
-        void SendRequest(TunnelRequest httpTunelRequest);
+        void SendRequest(AbstractTunnelRequest httpTunelRequest);
     }
 }

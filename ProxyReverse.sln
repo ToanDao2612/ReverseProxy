@@ -11,13 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{9E4912
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SubdomainManager", "SubdomainManager", "{072115C3-A51B-4105-A7C5-A84B3D381447}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{D2270AF7-4473-41E8-B913-34F21E122FCF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse", "ProxyReverse\ProxyReverse.csproj", "{FE75B84D-0E35-4237-95F1-BBD2B4583CD5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.Client", "ProxyReverse.Client\ProxyReverse.Client.csproj", "{666E0913-C4BE-49AD-B11F-4420F9E07BE0}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.DependencyInjection", "ProxyReverse.DependencyInjection\ProxyReverse.DependencyInjection.csproj", "{A38056FA-B884-4118-9BA4-746B20FE985F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalApi", "ExternalApi", "{F697C975-CCEA-42B6-AC56-47693E4046C6}"
 EndProject
@@ -39,9 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.Web.DependencyInjection", "ProxyReverse.Web.DependencyInjection\ProxyReverse.Web.DependencyInjection.csproj", "{47849014-5AC4-4E7B-A77E-28735803E690}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyReverse.Web.Core", "ProxyReverse.Web.Core\ProxyReverse.Web.Core.csproj", "{5892F0B6-3906-4FDB-B0EA-53D82B5384A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.Web.Core", "ProxyReverse.Web.Core\ProxyReverse.Web.Core.csproj", "{5892F0B6-3906-4FDB-B0EA-53D82B5384A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyReverse.RabitMqInterface", "ProxyReverse.RabitMqInterface\ProxyReverse.RabitMqInterface.csproj", "{C798B38E-5F8B-4276-BB09-65CD8180688F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyReverse.RabitMqInterface", "ProxyReverse.RabitMqInterface\ProxyReverse.RabitMqInterface.csproj", "{C798B38E-5F8B-4276-BB09-65CD8180688F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection", "DependencyInjection\DependencyInjection.csproj", "{3B8F9E68-6855-41A0-91C1-4FEDB79BF029}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +59,6 @@ Global
 		{666E0913-C4BE-49AD-B11F-4420F9E07BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{666E0913-C4BE-49AD-B11F-4420F9E07BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{666E0913-C4BE-49AD-B11F-4420F9E07BE0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A38056FA-B884-4118-9BA4-746B20FE985F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A38056FA-B884-4118-9BA4-746B20FE985F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A38056FA-B884-4118-9BA4-746B20FE985F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A38056FA-B884-4118-9BA4-746B20FE985F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7441E1D8-9F24-4940-AC74-9358A5216534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7441E1D8-9F24-4940-AC74-9358A5216534}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7441E1D8-9F24-4940-AC74-9358A5216534}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -105,6 +99,10 @@ Global
 		{C798B38E-5F8B-4276-BB09-65CD8180688F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C798B38E-5F8B-4276-BB09-65CD8180688F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C798B38E-5F8B-4276-BB09-65CD8180688F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B8F9E68-6855-41A0-91C1-4FEDB79BF029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8F9E68-6855-41A0-91C1-4FEDB79BF029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8F9E68-6855-41A0-91C1-4FEDB79BF029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8F9E68-6855-41A0-91C1-4FEDB79BF029}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,7 +110,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FE75B84D-0E35-4237-95F1-BBD2B4583CD5} = {3143E593-9FD0-48BE-A4B9-F586996ECEA1}
 		{666E0913-C4BE-49AD-B11F-4420F9E07BE0} = {3143E593-9FD0-48BE-A4B9-F586996ECEA1}
-		{A38056FA-B884-4118-9BA4-746B20FE985F} = {D2270AF7-4473-41E8-B913-34F21E122FCF}
 		{7441E1D8-9F24-4940-AC74-9358A5216534} = {F697C975-CCEA-42B6-AC56-47693E4046C6}
 		{AAE888B4-FEA7-4274-B82A-F6B16B11F81B} = {F697C975-CCEA-42B6-AC56-47693E4046C6}
 		{42A6392A-4074-4793-9C98-EAE376105D3D} = {9E49129F-A8B6-48E5-B227-DE68BED6A509}
@@ -123,6 +120,7 @@ Global
 		{47849014-5AC4-4E7B-A77E-28735803E690} = {9E49129F-A8B6-48E5-B227-DE68BED6A509}
 		{5892F0B6-3906-4FDB-B0EA-53D82B5384A0} = {9E49129F-A8B6-48E5-B227-DE68BED6A509}
 		{C798B38E-5F8B-4276-BB09-65CD8180688F} = {F697C975-CCEA-42B6-AC56-47693E4046C6}
+		{3B8F9E68-6855-41A0-91C1-4FEDB79BF029} = {AE9DD2BA-301B-4319-8514-61C989BDA157}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E898E1E-8D49-433F-9864-5EA032E2277B}

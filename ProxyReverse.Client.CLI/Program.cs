@@ -8,9 +8,8 @@ namespace ProxyReverse.Client.CLI
     {
         static async Task Main(string[] args)
         {
-            //var clientApp = ClientApp.Instance;
-            //clientApp.ConfigureDependencyInjection();
-            //await clientApp.RunAsync();
+            var clientApp = ClientApp.Instance;
+            await clientApp.RunAsync();
         }
     }
 }

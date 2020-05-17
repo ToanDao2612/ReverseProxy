@@ -1,6 +1,6 @@
 ﻿namespace ProxyReverse.Web.Core.DataTransferObjects
 {
-    public class HttpTunelRequest : TunnelRequest
+    public class HttpTunelRequest : AbstractTunnelRequest
     {
         public int Port { get; set; }
 

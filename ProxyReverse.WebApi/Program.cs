@@ -21,13 +21,12 @@ namespace ProxyReverse.WebApi
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
-        {
-            return Host.CreateDefaultBuilder(args)
+            =>
+            Host.CreateDefaultBuilder(args)
                 .UseUnityServiceProvider()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        }
     }
 }

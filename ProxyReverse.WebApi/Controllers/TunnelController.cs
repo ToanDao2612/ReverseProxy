@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ProxyReverse.Web.Core.InternalyImplementedServices;
 using ProxyReverse.Web.DependencyInjection;
+using ProxyReverse.WebApi.Models;
 
 namespace ProxyReverse.WebApi.Controllers
 {
@@ -24,7 +25,7 @@ namespace ProxyReverse.WebApi.Controllers
         public ITunnelRequestHandler TunnelRequestHandler { get; }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Post([FromBody] TunelRequest tunelRequest)
         {
             TunnelRequestHandler.CreateTunnel(new Web.Core.DataTransferObjects.HttpTunelRequest()
             {

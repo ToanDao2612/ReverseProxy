@@ -1,9 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Linq;
+﻿using System;
 using Unity;
 
-namespace ProxyReverse.DependencyInjection
+namespace DependencyInjection
 {
     public interface IContainer
     {
@@ -18,6 +16,7 @@ namespace ProxyReverse.DependencyInjection
         void RegisterInstance(Type interfaceType, object instance);
         void RegisterType(Type interfaceType, Type implementationType);
         void RegisterFactory(Type type, Func<System.IServiceProvider, object> func);
+        void RegisterInstance<TInterface>(TInterface instance);
     }
     public class Container : IContainer
     {
@@ -33,6 +32,9 @@ namespace ProxyReverse.DependencyInjection
 
         public void RegisterInstance<TInterface, TClass>(TClass instance)
             where TClass : TInterface => UnityContainer.RegisterInstance<TInterface>(instance);
+
+        public void RegisterInstance<TInterface>(TInterface instance)
+            => UnityContainer.RegisterInstance(instance);
 
         public void RegisterInstance(Type interfaceType, object instance) 
             => UnityContainer.RegisterInstance(interfaceType, instance);

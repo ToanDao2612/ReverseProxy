@@ -1,15 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using Unity;
 
-namespace ProxyReverse.DependencyInjection
+namespace DependencyInjection
 {
 
     public abstract class AbstractApplicationContext 
     {
-        internal ServiceProviderBuilder ServiceProviderBuilder { get; set; }
+        protected AbstractApplicationContext()
+        {
+            var serviceProvderBuilder = new ServiceProviderBuilder();
+            serviceProvderBuilder.ConfigureServices(ConfigureServiceDelegate =>
+            {
+                ConfigureServiceDelegate.RegisterInstance(this);
+            });
+            ServiceProviderBuilder = serviceProvderBuilder;
+        }
+
+        protected ServiceProviderBuilder ServiceProviderBuilder { get; set; }
         protected void OnStart() { }
         protected void OnEnd() { }
 

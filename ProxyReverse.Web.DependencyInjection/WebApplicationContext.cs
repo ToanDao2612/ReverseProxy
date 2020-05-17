@@ -1,4 +1,4 @@
-﻿using ProxyReverse.DependencyInjection;
+﻿using DependencyInjection;
 using ProxyReverse.RabitMqInterface;
 using ProxyReverse.Web.Core;
 using System;
@@ -11,7 +11,7 @@ namespace ProxyReverse.Web.DependencyInjection
     {
         public WebApplicationContext()
         {
-            this.UseContext()
+            ServiceProviderBuilder
                 .ConfigureServices<WebDependencyConfigurator>()
                 .ConfigureServices<RabitMqDependencyies>();
         }

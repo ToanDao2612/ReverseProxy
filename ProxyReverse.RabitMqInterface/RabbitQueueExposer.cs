@@ -2,7 +2,6 @@
 using ProxyReverse.Web.Core.DataTransferObjects;
 using ProxyReverse.Web.Core.ExternalyImplementedServices;
 using RabbitMQ.Client;
-using System;
 using System.Text;
 
 namespace ProxyReverse.RabitMqInterface
@@ -17,26 +16,30 @@ namespace ProxyReverse.RabitMqInterface
 
         public IRabitMqConfigs Configs { get; }
 
-        public void SendRequest(TunnelRequest httpTunelRequest)
+        public void SendRequest(AbstractTunnelRequest httpTunelRequest)
         {
-            ConnectionFactory factory = GetConnectionFactory();
 
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                channel.QueueDeclare(queue: Configs.QueueName,
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
+            var channel = GetChannel();
+            DeclareQueue(channel);
+            byte[] body = GetSerializedMessage(httpTunelRequest);
+            PublishMessage(channel, body);
+        }
 
-                byte[] body = GetSerializedMessage(httpTunelRequest);
+        private void PublishMessage(IModel channel, byte[] body)
+        {
+            channel.BasicPublish(exchange: "",
+                                                routingKey: Configs.QueueName,
+                                                basicProperties: null,
+                                                body: body);
+        }
 
-                channel.BasicPublish(exchange: "",
-                                     routingKey: Configs.QueueName,
-                                     basicProperties: null,
-                                     body: body);
-            }
+        private void DeclareQueue(IModel channel)
+        {
+            channel.QueueDeclare(queue: Configs.QueueName,
+                                                durable: false,
+                                                exclusive: false,
+                                                autoDelete: false,
+                                                arguments: null);
         }
 
         private ConnectionFactory GetConnectionFactory()
@@ -49,7 +52,14 @@ namespace ProxyReverse.RabitMqInterface
             };
         }
 
-        private static byte[] GetSerializedMessage(TunnelRequest httpTunelRequest)
+        private IModel GetChannel()
+        {
+            ConnectionFactory factory = GetConnectionFactory();
+            var connection = factory.CreateConnection();
+            return connection.CreateModel();
+        }
+
+        private static byte[] GetSerializedMessage(AbstractTunnelRequest httpTunelRequest)
         {
             string message = JsonConvert.SerializeObject(httpTunelRequest);
             var body = Encoding.UTF8.GetBytes(message);
