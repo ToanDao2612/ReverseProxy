@@ -1,25 +1,16 @@
 ﻿using ProxyReverse.DependencyInjection;
+using ProxyReverse.RabitMqInterface;
+using ProxyReverse.Web.Core.ExternalyImplementedServices;
+using ProxyReverse.Web.Core.InternalyImplementedServices;
 
 namespace ProxyReverse.Web.DependencyInjection
 {
-    public interface IDummyService
-    {
-        string GetData();
-    }
-
-    internal class DummyService : IDummyService
-    {
-        public string GetData()
-        {
-            return "This is the data you need";
-        }
-    }
-
     public class WebDependencyConfigurator : IDependencyConfigurator
     {
         public void ConfigureService(IContainer container)
         {
-            container.RegisterType<IDummyService, DummyService>();
+            container.RegisterType<ITunnelRequestHandler, TunnelRequestHandler>();
+            container.RegisterType<ITunnelRequestedQueueExposer, RabbitQueueExposer>();
         }
     }
 }

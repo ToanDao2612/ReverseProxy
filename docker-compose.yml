@@ -1,21 +1,6 @@
 version: '3.4'
 
 services:
-    proxyreverse.webapp:
-        container_name: "proxyreverse.webapp"
-        image: ${DOCKER_REGISTRY-}proxyreversewebapp
-        build:
-            context: .
-            dockerfile: ProxyReverse.WebApp/Dockerfile
-        ports:
-            - "3000:80"
-            - "3001:443"
-        depends_on:
-            - "proxyreverse.sql_server"
-            - "proxyreverse.cache_server"
-        networks:
-            - "proxyreverse.network"
-
     proxyreverse.webapi:
         container_name: "proxyreverse.webapi"
         image: ${DOCKER_REGISTRY-}proxyreversewebapi
@@ -28,6 +13,7 @@ services:
         depends_on:
             - "proxyreverse.sql_server"
             - "proxyreverse.cache_server"
+            - "proxyreverse.queue"
         networks:
             - "proxyreverse.network"
 
@@ -39,7 +25,6 @@ services:
             dockerfile: ProxyReverse.Client.CLI/Dockerfile
         environment:
             web_api: "{uri: proxyreverse.webapi, http: 3100, http: 3101}"
-            web_app: "{uri: proxyreverse.webapi, http: 3000, http: 3001}"
         depends_on:
             - "proxyreverse.webapi"
         networks:
@@ -53,13 +38,28 @@ services:
             SA_PASSWORD: "Dev1234@"
         ports:
             - "3200:3200"
+        networks:
+            - "proxyreverse.network"
 
     proxyreverse.cache_server:
         container_name: "proxyreverse.cache_server"
         image: redis
         ports:
             - "3300:3300"
+        networks:
+            - "proxyreverse.network"
 
+    proxyreverse.queue:
+        container_name: "proxyreverse.queue"
+        image: 'rabbitmq:3-management-alpine'
+        ports:
+            - "3400:5672"
+            - "3401:15672"
+        environment:
+            RABBITMQ_DEFAULT_USER: "rabitmquser"
+            RABBITMQ_DEFAULT_PASS: "Dev1234@"
+        networks:
+            - "proxyreverse.network"
 
 networks:
     proxyreverse.network:
