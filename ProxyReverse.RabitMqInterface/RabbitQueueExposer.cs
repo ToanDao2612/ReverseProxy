@@ -1,69 +1,39 @@
-﻿using Newtonsoft.Json;
+﻿using Base.Core.Services;
+using ProxyReverse.RabitMqInterface.Entities;
+using ProxyReverse.RabitMqInterface.Managers;
 using ProxyReverse.Web.Core.DataTransferObjects;
 using ProxyReverse.Web.Core.ExternalyImplementedServices;
-using RabbitMQ.Client;
 using System.Text;
 
 namespace ProxyReverse.RabitMqInterface
 {
-
-    public class RabbitQueueExposer : ITunnelRequestedQueueExposer
+    internal class RabbitQueueExposer : ITunnelExternalQueueAccessor
     {
-        public RabbitQueueExposer(IRabitMqConfigs configs)
+        internal RabbitQueueExposer(
+            IQueueConfigs queueConfigs,
+            IQueueProducerManager queueManager,
+            IQueueConsumerManager queueConsumerManager,
+            IJsonConvertor jsonConvertor)
         {
-            Configs = configs;
+            QueueConfigs = queueConfigs;
+            QueueProducerManagerQueueManager = queueManager;
+            QueueConsumerManager = queueConsumerManager;
+            JsonConvertor = jsonConvertor;
         }
 
-        public IRabitMqConfigs Configs { get; }
+        private IQueueConfigs QueueConfigs { get; }
+        private IQueueProducerManager QueueProducerManagerQueueManager { get; }
+        public IQueueConsumerManager QueueConsumerManager { get; }
+        public IJsonConvertor JsonConvertor { get; }
 
-        public void SendRequest(AbstractTunnelRequest httpTunelRequest)
-        {
+        public void SendRequest(AbstractTunnelRequest abstractTunelRequest)
+            => QueueProducerManagerQueueManager.PublishMessage(GetSerializedMessage(abstractTunelRequest), QueueConfigs.QueueName);
 
-            var channel = GetChannel();
-            DeclareQueue(channel);
-            byte[] body = GetSerializedMessage(httpTunelRequest);
-            PublishMessage(channel, body);
-        }
 
-        private void PublishMessage(IModel channel, byte[] body)
-        {
-            channel.BasicPublish(exchange: "",
-                                                routingKey: Configs.QueueName,
-                                                basicProperties: null,
-                                                body: body);
-        }
+        public void ReceiveWork(IMessageHandler<string> messageHandler)
+            => QueueConsumerManager.ConsumeQueue(QueueConfigs.QueueName,messageHandler);
 
-        private void DeclareQueue(IModel channel)
-        {
-            channel.QueueDeclare(queue: Configs.QueueName,
-                                                durable: false,
-                                                exclusive: false,
-                                                autoDelete: false,
-                                                arguments: null);
-        }
-
-        private ConnectionFactory GetConnectionFactory()
-        {
-            return new ConnectionFactory()
-            {
-                HostName = Configs.HostName,
-                UserName = Configs.UserName,
-                Password = Configs.Password
-            };
-        }
-
-        private IModel GetChannel()
-        {
-            ConnectionFactory factory = GetConnectionFactory();
-            var connection = factory.CreateConnection();
-            return connection.CreateModel();
-        }
-
-        private static byte[] GetSerializedMessage(AbstractTunnelRequest httpTunelRequest)
-        {
-            string message = JsonConvert.SerializeObject(httpTunelRequest);
-            var body = Encoding.UTF8.GetBytes(message);
-            return body;
-        }
+        private byte[] GetSerializedMessage(object data)
+            => Encoding.UTF8.GetBytes(JsonConvertor.ConvertToJson(data));
     }
 }

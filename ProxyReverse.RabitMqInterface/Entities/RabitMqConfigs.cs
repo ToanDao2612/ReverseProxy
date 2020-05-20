@@ -1,6 +1,8 @@
-﻿namespace ProxyReverse.RabitMqInterface
+﻿using ProxyReverse.RabitMqInterface.Entities;
+
+namespace ProxyReverse.RabitMqInterface.Entities
 {
-    public interface IRabitMqConfigs
+    internal interface IQueueConfigs
     {
         string HostName { get; }
         string UserName { get; }
@@ -9,7 +11,7 @@
         string QueueName {get;}
     }
 
-    public class RabitMqConfigs : IRabitMqConfigs
+    internal class RabitMqConfigs : IQueueConfigs
     {
         public string HostName { get => "proxyreverse.queue"; }
         public string UserName { get => "rabitmquser"; }

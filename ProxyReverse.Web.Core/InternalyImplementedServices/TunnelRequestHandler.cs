@@ -6,22 +6,27 @@ namespace ProxyReverse.Web.Core.InternalyImplementedServices
 {
     public interface ITunnelRequestHandler
     {
-        public ITunnelRequestHandler CreateTunnel(HttpTunelRequest httpTunelRequest);
+        public void CreateTunnel(HttpTunelRequest httpTunelRequest);
     }
 
     public class TunnelRequestHandler : ITunnelRequestHandler
     {
-        public TunnelRequestHandler(ITunnelRequestedQueueExposer tunnelRequestedQueueExposer)
+        public TunnelRequestHandler(ITunnelExternalQueueAccessor tunnelExternalQueueAccessor, IUserUrlProvider userUrlProvider)
         {
-            TunnelRequestedQueueExposer = tunnelRequestedQueueExposer;
+            TunnelExternalQueueAccessor = tunnelExternalQueueAccessor;
+            UserUrlProvider = userUrlProvider;
         }
 
-        public ITunnelRequestedQueueExposer TunnelRequestedQueueExposer { get; }
+        public ITunnelExternalQueueAccessor TunnelExternalQueueAccessor { get; }
+        public IUserUrlProvider UserUrlProvider { get; }
 
-        public ITunnelRequestHandler CreateTunnel(HttpTunelRequest httpTunelRequest)
+        private string _userUrl;
+        private string UserUrl => _userUrl ?? (_userUrl = UserUrlProvider.GetUrlForUser());
+
+        public void CreateTunnel(HttpTunelRequest httpTunelRequest)
         {
-            TunnelRequestedQueueExposer.SendRequest(httpTunelRequest);
-            return this;
+            httpTunelRequest.UserUrl = UserUrl;
+            TunnelExternalQueueAccessor.SendRequest(httpTunelRequest);
         }
     }
 }

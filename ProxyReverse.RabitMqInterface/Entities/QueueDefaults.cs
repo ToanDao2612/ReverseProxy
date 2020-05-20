@@ -1,4 +1,4 @@
-﻿namespace ProxyReverse.RabitMqInterface
+﻿namespace ProxyReverse.RabitMqInterface.Entities
 {
     public static class QueueDefaults
     {

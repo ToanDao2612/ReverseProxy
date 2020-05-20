@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Json.NewtonSoft.ThirdParty\Json.NewtonSoft.ThirdParty.csproj" />
     <ProjectReference Include="..\ProxyReverse.RabitMqInterface\ProxyReverse.RabitMqInterface.csproj" />
     <ProjectReference Include="..\ProxyReverse.Web.Core\ProxyReverse.Web.Core.csproj" />
   </ItemGroup>

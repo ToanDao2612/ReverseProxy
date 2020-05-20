@@ -17,6 +17,22 @@ services:
         networks:
             - "proxyreverse.network"
 
+    proxyreverse.web.dispatcher:
+        container_name: "proxyreverse.web.dispatcher"
+        image: ${DOCKER_REGISTRY-}proxyreversewebdispatcher
+        build:
+            context: .
+            dockerfile: ProxyReverse.Web.Dispatcher/Dockerfile
+        ports:
+            - "3500:80"
+            - "3501:443"
+        depends_on:
+            - "proxyreverse.sql_server"
+            - "proxyreverse.cache_server"
+            - "proxyreverse.queue"
+        networks:
+            - "proxyreverse.network"
+
     proxyreverse.client.cli:
         container_name: "proxyreverse.clientapp"
         image: ${DOCKER_REGISTRY-}proxyreverseclientcli
@@ -61,6 +77,8 @@ services:
         networks:
             - "proxyreverse.network"
 
+
 networks:
     proxyreverse.network:
         driver: bridge
+
