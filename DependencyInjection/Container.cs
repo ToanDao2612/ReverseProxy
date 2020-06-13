@@ -1,53 +1,59 @@
-﻿using System;
-using Unity;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Linq;
 
 namespace DependencyInjection
 {
     public interface IContainer
     {
         void RegisterSingleton<TInterface, TClass>()
-           where TClass : TInterface;
+           where TInterface : class
+           where TClass : class, TInterface;
         void RegisterType<TInterface, TClass>()
-           where TClass : TInterface;
+
+           where TInterface : class
+           where TClass : class, TInterface;
         object Resolve(Type type);
         void RegisterInstance<TInterface, TClass>(TClass instance)
-            where TClass : TInterface;
+           where TInterface : class
+           where TClass : class, TInterface;
 
         void RegisterInstance(Type interfaceType, object instance);
         void RegisterType(Type interfaceType, Type implementationType);
-        void RegisterFactory(Type type, Func<System.IServiceProvider, object> func);
-        void RegisterInstance<TInterface>(TInterface instance);
+        void RegisterInstance<TInterface>(TInterface instance)
+            where TInterface : class;
     }
     public class Container : IContainer
     {
-        protected IUnityContainer UnityContainer { get; }
-        internal Container(IUnityContainer unityContainer) 
-            => UnityContainer = unityContainer ?? new UnityContainer();
+        protected IServiceCollection ServiceCollection { get; }
+        protected IServiceProvider _serviceProvider;
+        protected IServiceProvider ServiceProvider => _serviceProvider ?? (_serviceProvider = ServiceCollection.BuildServiceProvider());
+        internal Container(IServiceCollection serviceCollection = null) 
+            =>  ServiceCollection = serviceCollection ?? new ServiceCollection();
 
         public void RegisterSingleton<TInterface, TClass>()
-            where TClass : TInterface => UnityContainer.RegisterSingleton<TInterface, TClass>();
+            where TInterface: class
+            where TClass : class,TInterface 
+            => ServiceCollection.AddSingleton<TInterface, TClass>();
         public void RegisterType<TInterface, TClass>()
-            where TClass : TInterface => UnityContainer.RegisterType<TInterface, TClass>();
-        public object Resolve(Type type) => UnityContainer.Resolve(type);
+            where TInterface : class
+            where TClass : class, TInterface
+             => ServiceCollection.AddTransient<TInterface, TClass>();
+        public object Resolve(Type type) => ServiceProvider.GetService(type);
 
         public void RegisterInstance<TInterface, TClass>(TClass instance)
-            where TClass : TInterface => UnityContainer.RegisterInstance<TInterface>(instance);
+            where TInterface : class
+            where TClass : class, TInterface
+            => ServiceCollection.AddSingleton<TInterface>(instance);
 
         public void RegisterInstance<TInterface>(TInterface instance)
-            => UnityContainer.RegisterInstance(instance);
+            where TInterface : class
+            => ServiceCollection.AddSingleton(instance);
 
         public void RegisterInstance(Type interfaceType, object instance) 
-            => UnityContainer.RegisterInstance(interfaceType, instance);
+            => ServiceCollection.AddSingleton(interfaceType, instance);
 
         public void RegisterType(Type interfaceType, Type implementationType)
-            => UnityContainer.RegisterType(interfaceType, implementationType);
-
-        public void RegisterFactory(Type type,Func<System.IServiceProvider, object> func) 
-            => UnityContainer.RegisterFactory(type, x =>
-            {
-                var s = x.Resolve<System.IServiceProvider>();
-                var  r = func(s);
-                return r;
-            });
+            => ServiceCollection.AddTransient(interfaceType, implementationType);
     }
 }

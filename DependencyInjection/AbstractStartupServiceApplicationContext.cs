@@ -5,7 +5,7 @@ namespace DependencyInjection
     public abstract class AbstractStartupServiceApplicationContext : AbstractApplicationContext
     {
         public async Task StartAsync<TStartUpService>()
-           where TStartUpService : IStartUpService
+           where TStartUpService : class,IStartUpService
         {
             ServiceProviderBuilder.ConfigureServices(x =>
             {
@@ -14,7 +14,7 @@ namespace DependencyInjection
 
             var serviceProvider = Build();
 
-            var startUpService = serviceProvider.GetService<IStartUpService>();
+            var startUpService = (IStartUpService)serviceProvider.GetService(typeof(IStartUpService));
             await startUpService.RunAsync();
         }
     }

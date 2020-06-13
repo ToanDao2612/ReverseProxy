@@ -1,4 +1,5 @@
-﻿using Unity;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace DependencyInjection
 {
@@ -21,8 +22,8 @@ namespace DependencyInjection
         public IServiceProvider Build() 
             => GetServiceProvider(new ServiceProvider(null));
 
-        public IServiceProvider Build(IUnityContainer unityContainer)
-            =>GetServiceProvider(new ServiceProvider(unityContainer));
+        public IServiceProvider Build(IServiceCollection serviceCollection)
+            =>GetServiceProvider(new ServiceProvider(serviceCollection));
 
         private IServiceProvider GetServiceProvider(ServiceProvider serviceProvider)
         {
@@ -33,7 +34,7 @@ namespace DependencyInjection
 
 
         public IServiceProviderBuilder RegisterSelf() =>
-            this.ConfigureServices(x => x.RegisterSingleton<IServiceProvider, ServiceProvider>());
+            this.ConfigureServices(x => x.RegisterType<IServiceProvider, ServiceProvider>());
 
         public IServiceProviderBuilder ConfigureServices(ConfigureServiceDelegate configureServiceDelegate)
         {

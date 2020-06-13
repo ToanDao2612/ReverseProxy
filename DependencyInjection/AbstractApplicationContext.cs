@@ -1,5 +1,5 @@
-﻿using System;
-using Unity;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace DependencyInjection
 {
@@ -28,10 +28,12 @@ namespace DependencyInjection
             return serviceProvider;
         }
 
-        public IServiceProvider Build(IUnityContainer unityContainer)
+        public IServiceProvider Build(IServiceCollection serviceCollection, ConfigureServiceDelegate configureServiceDelegate = null)
         {
+            ConfigureServiceDelegate emptyConfigureFunction = x => { };
+            ServiceProviderBuilder.ConfigureServices(configureServiceDelegate ?? emptyConfigureFunction);
             OnStart();
-            var serviceProvider = ServiceProviderBuilder.Build(unityContainer);
+            var serviceProvider = ServiceProviderBuilder.Build(serviceCollection);
             OnEnd();
             return serviceProvider;
         }

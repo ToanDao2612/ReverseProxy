@@ -1,13 +1,11 @@
-﻿using ProxyReverse.Web.Core.DataTransferObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ProxyReverse.Web.Core.InternalyImplementedServices.Tunnel.Models;
+using System.Threading.Tasks;
 
 namespace ProxyReverse.Web.Core.ExternalyImplementedServices
 {
     public interface ITunnelExternalQueueAccessor
     {
-        void SendRequest(AbstractTunnelRequest httpTunelRequest);
-        void ReceiveWork(IMessageHandler<string> messageHandler);
+        void SendDataToQueue(Tunnel httpTunelRequest);
+        Task ReceiveWorkAsync();
     }
 }

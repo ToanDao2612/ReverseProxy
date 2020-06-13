@@ -2,6 +2,6 @@
 {
     public static class QueueDefaults
     {
-        public static string TunelRequest = nameof(TunelRequest);
+        public const string TunelRequest = nameof(TunelRequest);
     }
 }

@@ -2,9 +2,6 @@
 using Json.NewtonSoft.ThirdParty;
 using ProxyReverse.RabitMqInterface;
 using ProxyReverse.Web.Core;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProxyReverse.Web.DependencyInjection
 {
@@ -14,7 +11,7 @@ namespace ProxyReverse.Web.DependencyInjection
         {
             ServiceProviderBuilder
                 .ConfigureServices<WebDependencyConfigurator>()
-                .ConfigureServices<RabitMqDependencyies>()
+                .ConfigureServices<RabitMqDependencies>()
                 .ConfigureServices<JsonDependencyies>();
         }
     }

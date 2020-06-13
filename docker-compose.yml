@@ -1,84 +1,72 @@
 version: '3.4'
-
 services:
-    proxyreverse.webapi:
-        container_name: "proxyreverse.webapi"
-        image: ${DOCKER_REGISTRY-}proxyreversewebapi
-        build:
-            context: .
-            dockerfile: ProxyReverse.WebApi/Dockerfile
-        ports:
-            - "3100:80"
-            - "3101:443"
-        depends_on:
-            - "proxyreverse.sql_server"
-            - "proxyreverse.cache_server"
-            - "proxyreverse.queue"
-        networks:
-            - "proxyreverse.network"
+  proxyreverse.webapp:
+    container_name: proxyreverse.webapp
+    image: '${DOCKER_REGISTRY-}proxyreversewebapp'
+    build:
+      context: .
+      dockerfile: ProxyReverse.WebApp/Dockerfile
+    depends_on:
+      - proxyreverse.sql_server
+      - proxyreverse.cache_server
+      - proxyreverse.queue
+    networks:
+      - proxyreverse.network
+    ports:
+      - '3100:80'
+      - '3101:443'
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: 'https://+:443;http://+:80'
+      DefaultConnection: 'Data Source=proxyreverse.sql_server,1433;Persist Security Info=True;User ID=sa;Password=Dev1234@'
+    volumes:
+      - '${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro'
+      - '${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro'
 
-    proxyreverse.web.dispatcher:
-        container_name: "proxyreverse.web.dispatcher"
-        image: ${DOCKER_REGISTRY-}proxyreversewebdispatcher
-        build:
-            context: .
-            dockerfile: ProxyReverse.Web.Dispatcher/Dockerfile
-        ports:
-            - "3500:80"
-            - "3501:443"
-        depends_on:
-            - "proxyreverse.sql_server"
-            - "proxyreverse.cache_server"
-            - "proxyreverse.queue"
-        networks:
-            - "proxyreverse.network"
+  proxyreverse.client.cli:
+    container_name: proxyreverse.clientapp
+    image: '${DOCKER_REGISTRY-}proxyreverseclientcli'
+    build:
+      context: .
+      dockerfile: ProxyReverse.Client.CLI/Dockerfile
+    environment:
+      web_app: '{uri: ''proxyreverse.webapp'', http: 3100, https: 3101}'
+    depends_on:
+      - proxyreverse.webapp
+    networks:
+      - proxyreverse.network
 
-    proxyreverse.client.cli:
-        container_name: "proxyreverse.clientapp"
-        image: ${DOCKER_REGISTRY-}proxyreverseclientcli
-        build:
-            context: .
-            dockerfile: ProxyReverse.Client.CLI/Dockerfile
-        environment:
-            web_api: "{uri: proxyreverse.webapi, http: 3100, http: 3101}"
-        depends_on:
-            - "proxyreverse.webapi"
-        networks:
-            - "proxyreverse.network"
+  proxyreverse.sql_server:
+    container_name: proxyreverse.sql_server
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: Dev1234@
+      MSSQL_PID: Developer
+    ports:
+      - '3200:1433'
+    networks:
+      - proxyreverse.network
 
-    proxyreverse.sql_server:
-        container_name: "proxyreverse.sql_server"
-        image: mcr.microsoft.com/mssql/server
-        environment:
-            ACCEPT_EULA: "Y"
-            SA_PASSWORD: "Dev1234@"
-        ports:
-            - "3200:3200"
-        networks:
-            - "proxyreverse.network"
+  proxyreverse.cache_server:
+    container_name: proxyreverse.cache_server
+    image: redis
+    ports:
+      - '3300:3300'
+    networks:
+      - proxyreverse.network
 
-    proxyreverse.cache_server:
-        container_name: "proxyreverse.cache_server"
-        image: redis
-        ports:
-            - "3300:3300"
-        networks:
-            - "proxyreverse.network"
-
-    proxyreverse.queue:
-        container_name: "proxyreverse.queue"
-        image: 'rabbitmq:3-management-alpine'
-        ports:
-            - "3400:5672"
-            - "3401:15672"
-        environment:
-            RABBITMQ_DEFAULT_USER: "rabitmquser"
-            RABBITMQ_DEFAULT_PASS: "Dev1234@"
-        networks:
-            - "proxyreverse.network"
-
-
+  proxyreverse.queue:
+    container_name: proxyreverse.queue
+    image: 'rabbitmq:3-management-alpine'
+    ports:
+      - '3400:5672'
+      - '3401:15672'
+    environment:
+      RABBITMQ_DEFAULT_USER: rabitmquser
+      RABBITMQ_DEFAULT_PASS: Dev1234@
+    networks:
+      - proxyreverse.network
 networks:
-    proxyreverse.network:
-        driver: bridge
-
+  proxyreverse.network:
+    driver: bridge

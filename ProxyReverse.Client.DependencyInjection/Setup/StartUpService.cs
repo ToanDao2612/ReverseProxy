@@ -23,7 +23,6 @@ namespace ProxyReverse.Client.DependencyInjection.Setup
             Connector = connector;
         }
 
-
         public async Task RunAsync()
         {
             var connectionRequest = ConectionRequestProvider.GetConnectionRequest();

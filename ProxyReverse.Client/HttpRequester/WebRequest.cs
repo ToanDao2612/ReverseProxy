@@ -22,7 +22,7 @@ namespace ProxyReverse.Client.HttpRequester
         {
             try
             {
-                var config = ApplicationConfigReader.GetWebApi();
+                var config = ApplicationConfigReader.GetWebApp();
                 var handler = new HttpClientHandler()
                 {
                     ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
